@@ -1,69 +1,190 @@
-import Image from "next/image";
+import {
+  Button,
+  Card,
+  Footer,
+  Header,
+  Section,
+  SponsorMarquee,
+  WireframeImage,
+} from "./components/site";
+
+const dashboardUrl = "https://dmv-river-intelligence-network.vercel.app";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <Header />
+
+      <main>
+        <Section className="hero-section">
+          <div className="hero">
+            <div>
+              <h1>River data you can actually read.</h1>
+              <p className="lede">
+                A student led watershed organization making local river data
+                clear for DMV residents.
+              </p>
+              <div className="actions">
+                <Button href={dashboardUrl}>Open dashboards</Button>
+                <Button href="#classes">Join the class interest list</Button>
+              </div>
+            </div>
+            <WireframeImage
+              alt="Hero image placeholder"
+              height={3}
+              label="[ Hero image ]"
+              src="/hero_image.jpeg"
+              width={4}
+              className="hero-image"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+        </Section>
+
+        <SponsorMarquee />
+
+        <Section>
+          <h2>What we do</h2>
+          <p>[ One sentence: DMV RIN does two things. ]</p>
+          <div className="two offering-grid">
+            <Card>
+              <WireframeImage
+                alt="River dashboards image placeholder"
+                height={9}
+                label="[ Image ]"
+                src="/dashboard.png"
+                width={16}
+              />
+              <h3>River dashboards</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <Button href="#dashboards">See the dashboards</Button>
+            </Card>
+            <Card>
+              <WireframeImage
+                alt="River classes image placeholder"
+                height={9}
+                label="[ Image ]"
+                src="/classes.png"
+                width={16}
+              />
+              <h3>River classes</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <Button href="#classes">Join the interest list</Button>
+            </Card>
+          </div>
+        </Section>
+
+        <Section id="dashboards">
+          <h2>Chapter dashboards</h2>
+          <p>
+            [ One or two sentences: each river gets its own dashboard, run by a
+            student chapter. ]
+          </p>
+          <div className="grid3">
+            <Card>
+              <WireframeImage
+                alt="Dashboard preview placeholder"
+                height={9}
+                label="[ Dashboard preview ]"
+                src="/pot_r_little_falls.png"
+                width={16}
+              />
+              <h3>Potomac River near Little Falls</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <Button href="#">View chapter page</Button>
+            </Card>
+            <Card className="dashed">
+              <h3>Your river here</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <Button href="#lead">Lead a chapter</Button>
+            </Card>
+          </div>
+        </Section>
+
+        <Section id="classes" className="classes-section">
+          <div className="two aligned-grid">
+            <WireframeImage
+              alt="Class or workshop photo placeholder"
+              height={3}
+              label="[ Photo: class or workshop ]"
+              width={4}
+            />
+            <div>
+              <h2>River classes</h2>
+              <p>[ Short description of the classes and who they are for. ]</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p>
+                <strong>This is an interest list.</strong> Classes are not open
+                for enrollment yet. [ Placeholder: what happens after signing
+                up. ]
+              </p>
+              <Button href="#">Join the interest list</Button>
+            </div>
+          </div>
+        </Section>
+
+        <Section>
+          <h2>Our community</h2>
+          <div className="stats">
+            <div className="stat">
+              <strong>5+</strong>
+              active dashboard users
+            </div>
+            <div className="stat">
+              <strong>200+</strong>
+              Instagram followers
+            </div>
+          </div>
+        </Section>
+
+        <Section id="about">
+          <h2>About us</h2>
+          <div className="founder">
+            <WireframeImage
+              alt="Founder photo placeholder"
+              height={1}
+              label="[ Founder photo ]"
+              src="/Ackshat_Tiwari.png"
+              width={1}
+            />
+            <div>
+              <h3>Ackshat Tiwari, Founder</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="lead" className="cta-section">
+          <h2>Lead a chapter dashboard</h2>
+          <p>
+            [ One sentence inviting students to apply. Applications are
+            reviewed on a rolling basis. ]
+          </p>
+          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSdFtdKmVT25GAiPFtvf1vnVMfYiEcWQybVUBURLLkGX7DV9UA/viewform?usp=dialog">Apply to lead a chapter</Button>
+        </Section>
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }
