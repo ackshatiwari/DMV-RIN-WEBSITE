@@ -7,6 +7,7 @@ import {
   SponsorMarquee,
   WireframeImage,
 } from "./components/site";
+import DonationSection from "./components/donation-section";
 
 const dashboardUrl = "https://dmv-river-intelligence-network.vercel.app";
 
@@ -173,6 +174,8 @@ export default function Home() {
             </div>
           </div>
         </Section>
+
+        <DonationSection />
 
         <Section id="lead" className="cta-section">
           <h2>Lead a chapter dashboard</h2>
