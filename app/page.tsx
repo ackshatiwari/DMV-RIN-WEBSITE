@@ -9,7 +9,8 @@ import {
 } from "./components/site";
 import DonationSection from "./components/donation-section";
 
-const dashboardUrl = "https://dmv-river-intelligence-network.vercel.app";
+const dashboardUrl = "https://dmvrin-dashboards.vercel.app/";
+const classInterestUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdMd8KVYsiRM3hEtPA4o8POO3Hsetdlp4K9-8F455L-WtmsPg/viewform?usp=dialog";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
               </p>
               <div className="actions">
                 <Button href={dashboardUrl}>Open dashboards</Button>
-                <Button href="#classes">Join the class interest list</Button>
+                <Button href={classInterestUrl}>Join the class interest list</Button>
               </div>
             </div>
             <WireframeImage
@@ -45,7 +46,7 @@ export default function Home() {
 
         <Section>
           <h2>What we do</h2>
-          <p>[ One sentence: DMV RIN does two things. ]</p>
+          <p>We are a student-led watershed organization making local river data clear for DMV residents. We also provide educational resources and opportunities for the community, especially for young minds.</p>
           <div className="two offering-grid">
             <Card>
               <WireframeImage
@@ -57,10 +58,10 @@ export default function Home() {
               />
               <h3>River dashboards</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                These dashboards, which are run by student chapters, provide clear and
+                accessible information about local rivers, including water quality and flood rates.
+                They are also comparable to past data, allowing users to track changes over time
+                get a better understanding of the health of their local rivers.
               </p>
               <Button href="#dashboards">See the dashboards</Button>
             </Card>
@@ -74,12 +75,13 @@ export default function Home() {
               />
               <h3>River classes</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                The goal of these classes is to educate the community about local rivers,
+                spanning topics from water quality to AI / ML applications in river data analysis.
+                <br />
+                Our pioneer class, <b>Code the River Labs</b> teaches students how to use statistics and data analytics to form a scientific question
+                and develop a comprehensive research project.
               </p>
-              <Button href="#classes">Join the interest list</Button>
+              <Button href={classInterestUrl}>Join Code the River Labs's Interest List</Button>
             </Card>
           </div>
         </Section>
@@ -87,8 +89,9 @@ export default function Home() {
         <Section id="dashboards">
           <h2>Chapter dashboards</h2>
           <p>
-            [ One or two sentences: each river gets its own dashboard, run by a
-            student chapter. ]
+            Chapters are ran by students and independently verified by our organization.
+            Each chapter dashboard is focused on a specific river segment, prioritizing information
+            that those specific residents would find most useful.
           </p>
           <div className="grid3">
             <Card>
@@ -101,40 +104,35 @@ export default function Home() {
               />
               <h3>Potomac River near Little Falls</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Founded by <b>Ackshat Tiwari</b>, this chapter focuses on the Potomac River near Little Falls.
               </p>
               <Button href="#">View chapter page</Button>
             </Card>
-            <Card className="dashed">
-              <h3>Your river here</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <Button href="#lead">Lead a chapter</Button>
-            </Card>
+
           </div>
         </Section>
 
         <Section id="classes" className="classes-section">
           <div className="two aligned-grid">
             <WireframeImage
-              alt="Class or workshop photo placeholder"
+              alt="Code the River Labs course flyer"
               height={3}
-              label="[ Photo: class or workshop ]"
-              width={4}
+              label="Code the River Labs course flyer"
+              src="/CodeTheRiverLabs_flyer.png"
+              width={2}
             />
             <div>
               <h2>River classes</h2>
-              <p>[ Short description of the classes and who they are for. ]</p>
+              <p>DMV River Intelligence Network's classes are designed to educate and empower students to become leaders in the field of river conservation and data analysis.</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Code the River Labs is our pioneer class, teaching students how to use statistics and data analytics to form a scientific question and develop a comprehensive research project.
               </p>
               <p>
                 <strong>This is an interest list.</strong> Classes are not open
                 for enrollment yet. [ Placeholder: what happens after signing
                 up. ]
               </p>
-              <Button href="#">Join the interest list</Button>
+              <Button href={classInterestUrl}>Join Code the River Labs's Interest List</Button>
             </div>
           </div>
         </Section>
@@ -166,10 +164,9 @@ export default function Home() {
             <div>
               <h3>Ackshat Tiwari, Founder</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Ackshat Tiwari is a sophomore at Rock Rideg High School, and the founder of DMV River Intelligence Network.
+                He experienced the challenges of accessible river data firsthand while participating in a local program where
+                he learned about water quality monitoring. This inspired him to create this organization.
               </p>
             </div>
           </div>
@@ -180,8 +177,8 @@ export default function Home() {
         <Section id="lead" className="cta-section">
           <h2>Lead a chapter dashboard</h2>
           <p>
-            [ One sentence inviting students to apply. Applications are
-            reviewed on a rolling basis. ]
+            We are looking for students to lead chapter dashboards. You get volunteer hours depending on the amount of work,
+            and you will be featured on our website and social media fro your efforts. Applications are decided on a rolling basis.
           </p>
           <Button href="https://docs.google.com/forms/d/e/1FAIpQLSdFtdKmVT25GAiPFtvf1vnVMfYiEcWQybVUBURLLkGX7DV9UA/viewform?usp=dialog">Apply to lead a chapter</Button>
         </Section>
