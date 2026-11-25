@@ -1,11 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
-  --line: #bdbdbd;
-  --muted: #8a8a8a;
-  --box: #f3f3f3;
+  --foreground: #0e2a3a;
+  --line: #d3e0e8;
+  --muted: #35505e;
+  --box: #f4f8fb;
+  --accent: #1a6a99;
+  --accent-hover: #0e2a3a;
+  --white: #ffffff;
+  --dark: #0e2a3a;
+  --font-body: "Hanken Grotesk", Arial, sans-serif;
+  --font-heading: "Hanken Grotesk", Arial, sans-serif;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --heading-tracking: -0.025em;
+  --button-radius: 6px;
+  --card-radius: 10px;
+  --card-shadow: 0 3px 12px rgba(14, 42, 58, 0.05);
+  --focus-ring: 0 0 0 3px rgba(26, 106, 153, 0.28);
+  --topographic-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' fill='none'%3E%3Cg stroke='%231a6a99' stroke-opacity='.12' stroke-width='1'%3E%3Cpath d='M-80 100C20 40 95 50 165 105s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 125C20 65 95 75 165 130s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 150C20 90 95 100 165 155s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 275C20 215 95 225 165 280s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 300C20 240 95 250 165 305s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 325C20 265 95 275 165 330s130 65 205 5 145-60 230 5'/%3E%3C/g%3E%3C/svg%3E");
+  --topographic-pattern-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' fill='none'%3E%3Cg stroke='%23ffffff' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M-80 100C20 40 95 50 165 105s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 125C20 65 95 75 165 130s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 150C20 90 95 100 165 155s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 275C20 215 95 225 165 280s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 300C20 240 95 250 165 305s130 65 205 5 145-60 230 5'/%3E%3Cpath d='M-80 325C20 265 95 275 165 330s130 65 205 5 145-60 230 5'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -20,7 +37,8 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
   line-height: 1.5;
 }
 
@@ -38,7 +56,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fff;
+  background: var(--background);
   border-bottom: 1px solid var(--line);
 }
 
@@ -54,7 +72,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   text-decoration: none;
 }
 
@@ -62,8 +80,12 @@ nav {
   display: block;
   width: 28px;
   height: 28px;
-  border: 1px dashed var(--muted);
-  background: var(--box);
+  border: 0;
+  background-color: transparent;
+  background-image: url("/dmvrin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .nav-links {
@@ -82,11 +104,24 @@ nav {
 .btn {
   display: inline-block;
   padding: 12px 22px;
-  border: 1.5px solid var(--foreground);
-  background: #fff;
-  color: var(--foreground);
-  font-weight: 600;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--button-radius);
+  background: var(--accent);
+  color: var(--white);
+  font-weight: var(--weight-semibold);
   text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.btn:hover {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+  color: var(--white);
+  transform: translateY(-1px);
 }
 
 section {
@@ -95,22 +130,42 @@ section {
   scroll-margin-top: 68px;
 }
 
+main > section:nth-of-type(even) {
+  background-color: var(--box);
+}
+
+.hero-section {
+  background-color: var(--background);
+  background-image: var(--topographic-pattern);
+  background-repeat: repeat;
+  background-size: 600px 400px;
+}
+
 h1 {
   max-width: 14ch;
   margin: 0 0 16px;
-  font-size: clamp(36px, 5vw, 58px);
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 5.4vw, 70px);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--heading-tracking);
   line-height: 1.1;
 }
 
 h2 {
   margin: 0 0 12px;
+  font-family: var(--font-heading);
   font-size: 30px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--heading-tracking);
   line-height: 1.2;
 }
 
 h3 {
   margin: 16px 0 6px;
+  font-family: var(--font-heading);
   font-size: 20px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--heading-tracking);
 }
 
 p {
@@ -119,7 +174,7 @@ p {
 }
 
 .lede {
-  color: #444;
+  color: var(--muted);
   font-size: 19px;
 }
 
@@ -152,6 +207,9 @@ p {
 .card {
   padding: 24px;
   border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: var(--background);
+  box-shadow: var(--card-shadow);
 }
 
 .card.dashed {
@@ -160,7 +218,7 @@ p {
   align-items: flex-start;
   justify-content: center;
   border-style: dashed;
-  color: var(--muted);
+  color: var(--foreground);
 }
 
 .grid3 {
@@ -178,12 +236,16 @@ p {
 .stat {
   padding: 28px;
   border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: var(--background);
+  box-shadow: var(--card-shadow);
   text-align: center;
 }
 
 .stat strong {
   display: block;
   font-size: 40px;
+  font-weight: var(--weight-bold);
 }
 
 .founder {
@@ -246,7 +308,7 @@ p {
 
 .donation-goal-row {
   margin-bottom: 8px;
-  color: #555;
+  color: var(--muted);
   font-size: 14px;
 }
 
@@ -254,13 +316,13 @@ p {
   height: 10px;
   overflow: hidden;
   border-radius: 999px;
-  background: #d6d6d6;
+  background: var(--line);
 }
 
 .donation-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: #1a1a1a;
+  background: var(--accent);
   transition: width 0.4s ease;
 }
 
@@ -271,7 +333,7 @@ p {
 
 .donation-label {
   margin-bottom: 8px;
-  font-weight: 700;
+  font-weight: var(--weight-semibold);
 }
 
 .donation-presets {
@@ -284,19 +346,19 @@ p {
 .donation-preset,
 .donation-submit {
   min-height: 44px;
-  border: 1px solid var(--foreground);
-  border-radius: 0;
-  background: #fff;
-  color: var(--foreground);
+  border: 1px solid var(--accent);
+  border-radius: var(--button-radius);
+  background: var(--background);
+  color: var(--accent);
   font: inherit;
-  font-weight: 700;
+  font-weight: var(--weight-semibold);
   cursor: pointer;
 }
 
 .donation-preset.active,
 .donation-submit {
-  background: var(--foreground);
-  color: #fff;
+  background: var(--accent);
+  color: var(--white);
 }
 
 .donation-form input[type="number"] {
@@ -304,8 +366,8 @@ p {
   padding: 11px 12px;
   margin-bottom: 16px;
   border: 1px solid var(--line);
-  border-radius: 0;
-  background: #fff;
+  border-radius: var(--button-radius);
+  background: var(--background);
   color: var(--foreground);
   font: inherit;
 }
@@ -330,8 +392,9 @@ p {
 
 .donation-preset:hover,
 .donation-submit:hover {
-  background: #444;
-  color: #fff;
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+  color: var(--white);
 }
 
 .donation-error {
@@ -347,7 +410,8 @@ p {
   justify-content: center;
   overflow: hidden;
   padding: 12px;
-  border: 1px dashed var(--muted);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
   background: var(--box);
   color: var(--muted);
   font-size: 14px;
@@ -376,8 +440,8 @@ p {
   padding-right: 32px;
   margin-right: 8px;
   border-right: 1px solid var(--line);
-  background: #fff;
-  font-weight: 600;
+  background: var(--background);
+  font-weight: var(--weight-semibold);
   position: relative;
   z-index: 1;
 }
@@ -422,7 +486,13 @@ p {
   }
 }
 
-.cta-section {
+main > section.cta-section {
+  border-bottom-color: var(--dark);
+  background-color: var(--dark);
+  background-image: var(--topographic-pattern-light);
+  background-repeat: repeat;
+  background-size: 600px 400px;
+  color: var(--white);
   text-align: center;
 }
 
@@ -430,6 +500,18 @@ p {
 .cta-section p {
   margin-right: auto;
   margin-left: auto;
+}
+
+.cta-section .btn {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--dark);
+}
+
+.cta-section .btn:hover {
+  border-color: var(--box);
+  background: var(--box);
+  color: var(--dark);
 }
 
 footer {
@@ -448,9 +530,39 @@ footer a {
   color: var(--foreground);
 }
 
+a:hover:not(.btn) {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: var(--focus-ring);
+}
+
+.cta-section :focus-visible {
+  outline-color: var(--white);
+  box-shadow: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .track {
     animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
